@@ -1,0 +1,42 @@
+{
+    "name": "tellorJS",
+    "version": "0.1.0",
+    "description": "Tellor.io Javascript/Typescript Client",
+    "author": "Leo Vigna",
+    "private": false,
+    "copyright": "Copyright 2020 Leo Vigna",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:vulcanlink/tellorJS.git"
+    },
+    "dependencies": {
+        "@typescript-eslint/parser": "^3.3.0",
+        "husky": "^4.2.5",
+        "keccak256": "^1.0.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node dist/bot",
+        "clean": "rm -rf dist",
+        "build": "npm -s run clean && tsc",
+        "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/bot",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "devDependencies": {
+        "@types/node": "^13.11.1",
+        "@types/ws": "^7.2.4",
+        "@typescript-eslint/eslint-plugin": "^3.3.0",
+        "eslint": "^7.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.8.2",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.8.3"
+    },
+    "bugs": {
+        "url": "https://github.com/vulcanlink/tellorJS/issues"
+    }
+}
