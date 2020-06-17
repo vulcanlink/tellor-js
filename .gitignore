@@ -1,4 +1,6 @@
 .env
+.nyc_output
+coverage
 dist
 .DS_STORE
 node_modules

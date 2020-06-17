@@ -1,4 +1,3 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
@@ -6,52 +5,12 @@
 import keccak256 from 'keccak256';
 import TellorGetters from './contracts/TellorGetters.json';
 import UserContract from './contracts/UserContract.json';
+import { TellorInfo, RequestInfo, RequestValue, Dispute, RequestQueue } from './types';
 
-interface TellorInfo {
-    stakerCount: string;
-    difficulty: string;
-    currentRequestId: string;
-    disputeCount: string;
-    totalSupply: string;
-    timeOfLastValue: string;
-    requestCount: string;
+interface TellorClientOptions {
+    tellorGettersAddress?: string;
+    userContractAddress?: string;
 }
-
-interface RequestInfo {
-    apiString: string;
-    dataSymbol: string;
-    queryHash: string;
-    granularity: string;
-    requestQPosition: string;
-    totalTip: string;
-}
-
-interface RequestValue {
-    didGet: boolean;
-    value: string;
-    timestampRetrieved: string;
-}
-
-interface Dispute {
-    hash: string;
-    executed: string;
-    disputeVotePassed: string;
-    isPropFork: boolean;
-    reportedMiner: string;
-    reportingParty: string;
-    proposedForkAddress: string;
-    requestId: string;
-    timestamp: string;
-    value: string;
-    minExecutionDate: string;
-    stringOfVotes: string;
-    blockNumber: string;
-    minerSlot: string;
-    quorum: string;
-    fee: string;
-}
-
-type RequestQueue = any;
 
 class TellorClient {
     web3: any;
@@ -60,21 +19,21 @@ class TellorClient {
     static defaultTellorGettersAddress = '0x0ba45a8b5d5575935b8158a88c631e9f9c95a2e5';
     static defaultUserContractAddress = '0xCaC3937932621F62D94aCdE77bBB2a091FD26f58';
 
-    constructor(web3: any, { tellorGettersAddress, userContractAddress }: any) {
+    constructor(web3: any, options?: TellorClientOptions) {
         this.web3 = web3;
         this.tellorGetters = new web3.eth.Contract(
             TellorGetters.abi,
-            tellorGettersAddress || TellorClient.defaultTellorGettersAddress,
+            options?.tellorGettersAddress || TellorClient.defaultTellorGettersAddress,
         );
         this.userContract = new web3.eth.Contract(
             UserContract.abi,
-            userContractAddress || TellorClient.defaultUserContractAddress,
+            options?.userContractAddress || TellorClient.defaultUserContractAddress,
         );
     }
 
     public async getUintVar(name: string): Promise<string> {
         const hash = keccak256(name).toString('hex');
-        const value = await this.tellorGetters.methods.getUintVar(hash).call();
+        const value = await this.tellorGetters.methods.getUintVar('0x' + hash).call();
         return value;
     }
 

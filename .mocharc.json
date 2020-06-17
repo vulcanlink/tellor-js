@@ -1,0 +1,4 @@
+{
+    "require": ["esm"],
+    "recursive": true
+}

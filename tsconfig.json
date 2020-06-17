@@ -3,10 +3,7 @@
         "sourceMap": true,
         "outDir": "dist",
         "strict": true,
-        "lib": [
-            "esnext",
-            "dom"
-        ],
+        "lib": ["esnext", "dom"],
         "esModuleInterop": true,
         "allowJs": true,
         "skipLibCheck": true,
@@ -15,7 +12,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "noEmit": true,
+        "noEmit": false,
         "declaration": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
@@ -23,11 +20,6 @@
         "noFallthroughCasesInSwitch": true,
         "isolatedModules": true
     },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "build"
-    ]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "build"]
 }
