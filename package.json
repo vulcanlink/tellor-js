@@ -1,17 +1,26 @@
 {
     "name": "tellor-js",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "description": "Tellor.io Javascript/Typescript Client",
     "author": "Leo Vigna",
     "private": false,
     "copyright": "Copyright 2020 Leo Vigna",
     "license": "MIT",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "tellor",
+        "ethereum",
+        "oracle",
+        "blockchain"
+    ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:vulcanlink/tellorJS.git"
+        "url": "git@github.com:vulcanlink/tellor-js.git"
     },
     "dependencies": {
-        "keccak256": "^1.0.0"
+        "keccak256": "^1.0.0",
+        "web3": "^1.2.9"
     },
     "scripts": {
         "clean": "rm -rf dist",
@@ -19,7 +28,9 @@
         "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/client",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "test": "ts-mocha -p ./tsconfig.json tests/**/*.test.ts"
+        "test": "ts-mocha -p ./tsconfig.json tests/**/*.test.ts",
+        "prepublishOnly": "npm run test",
+        "prepare": "npm run build"
     },
     "peerDependencies": {
         "web3": ">=1"
@@ -48,6 +59,6 @@
         "typescript": "^3.9.5"
     },
     "bugs": {
-        "url": "https://github.com/vulcanlink/tellorJS/issues"
+        "url": "https://github.com/vulcanlink/tellor-js/issues"
     }
 }
