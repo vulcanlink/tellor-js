@@ -8,9 +8,15 @@
     "license": "MIT",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "keywords": [
+        "tellor",
+        "ethereum",
+        "oracle",
+        "blockchain"
+    ],
     "repository": {
         "type": "git",
-        "url": "git@github.com:vulcanlink/tellorJS.git"
+        "url": "git@github.com:vulcanlink/tellor-js.git"
     },
     "dependencies": {
         "keccak256": "^1.0.0",
@@ -53,6 +59,6 @@
         "typescript": "^3.9.5"
     },
     "bugs": {
-        "url": "https://github.com/vulcanlink/tellorJS/issues"
+        "url": "https://github.com/vulcanlink/tellor-js/issues"
     }
 }
