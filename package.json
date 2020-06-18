@@ -1,6 +1,6 @@
 {
     "name": "tellor-js",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Tellor.io Javascript/Typescript Client",
     "author": "Leo Vigna",
     "private": false,
