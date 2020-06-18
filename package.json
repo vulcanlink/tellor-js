@@ -1,5 +1,5 @@
 {
-    "name": "tellorJS",
+    "name": "tellor-js",
     "version": "0.1.0",
     "description": "Tellor.io Javascript/Typescript Client",
     "author": "Leo Vigna",
@@ -20,6 +20,9 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "ts-mocha -p ./tsconfig.json tests/**/*.test.ts"
+    },
+    "peerDependencies": {
+        "web3": ">=1"
     },
     "devDependencies": {
         "@types/chai": "^4.2.11",
@@ -42,8 +45,7 @@
         "ts-mocha": "^7.0.0",
         "ts-node": "^8.10.2",
         "ts-node-dev": "^1.0.0-pre.44",
-        "typescript": "^3.9.5",
-        "web3": "^1.2.9"
+        "typescript": "^3.9.5"
     },
     "bugs": {
         "url": "https://github.com/vulcanlink/tellorJS/issues"

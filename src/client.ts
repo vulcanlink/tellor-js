@@ -38,14 +38,31 @@ class TellorClient {
     }
 
     public async getInfo(): Promise<TellorInfo> {
-        //TODO (Avoid blocking await calls)
-        const stakerCount = await this.getUintVar('stakerCount');
-        const difficulty = await this.getUintVar('difficulty');
-        const currentRequestId = await this.getUintVar('currentRequestId');
-        const disputeCount = await this.getUintVar('disputeCount');
-        const totalSupply = await this.getUintVar('totalSupply');
-        const timeOfLastValue = await this.getUintVar('timeOfLastValue');
-        const requestCount = await this.getUintVar('requestCount');
+        const stakerCountPromise = this.getUintVar('stakerCount');
+        const difficultyPromise = this.getUintVar('difficulty');
+        const currentRequestIdPromise = this.getUintVar('currentRequestId');
+        const disputeCountPromise = this.getUintVar('disputeCount');
+        const totalSupplyPromise = this.getUintVar('totalSupply');
+        const timeOfLastValuePromise = this.getUintVar('timeOfLastValue');
+        const requestCountPromise = this.getUintVar('requestCount');
+
+        const [
+            stakerCount,
+            difficulty,
+            currentRequestId,
+            disputeCount,
+            totalSupply,
+            timeOfLastValue,
+            requestCount,
+        ] = await Promise.all([
+            stakerCountPromise,
+            difficultyPromise,
+            currentRequestIdPromise,
+            disputeCountPromise,
+            totalSupplyPromise,
+            timeOfLastValuePromise,
+            requestCountPromise,
+        ]);
 
         return {
             stakerCount,
