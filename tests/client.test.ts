@@ -39,7 +39,7 @@ describe('TellorClient', function () {
     it('getRequestValue', async function () {
         const web3 = new Web3(ETH_RPC);
         const client = new TellorClient(web3);
-        const requestValue = await client.getRequestValue('0');
+        const requestValue = await client.getRequestValue('1');
 
         console.debug(requestValue);
     });
@@ -47,7 +47,7 @@ describe('TellorClient', function () {
     it('getDispute', async function () {
         const web3 = new Web3(ETH_RPC);
         const client = new TellorClient(web3);
-        const dispute = await client.getDispute('0');
+        const dispute = await client.getDispute('1');
 
         console.debug(dispute);
     });
@@ -58,5 +58,45 @@ describe('TellorClient', function () {
         const queue = await client.getRequestQueue();
 
         console.debug(queue);
+    });
+
+    it('getNewValueCountbyRequestId', async () => {
+        const web3 = new Web3(ETH_RPC);
+        const client = new TellorClient(web3);
+        const newValueCount = await client.getNewValueCountbyRequestId('1');
+
+        console.debug(newValueCount);
+    });
+
+    it('getTimestampbyRequestIDandIndex', async () => {
+        const web3 = new Web3(ETH_RPC);
+        const client = new TellorClient(web3);
+        const timestamp = await client.getTimestampbyRequestIDandIndex('1', 1);
+
+        console.debug(timestamp);
+    });
+
+    it('retrieveData', async () => {
+        const web3 = new Web3(ETH_RPC);
+        const client = new TellorClient(web3);
+        const timestamp = await client.getTimestampbyRequestIDandIndex('1', 1);
+        const data = await client.retrieveData('1', timestamp);
+
+        console.debug(data);
+    });
+
+    it('getRequestValue == retrieveData', async function () {
+        const web3 = new Web3(ETH_RPC);
+        const client = new TellorClient(web3);
+        //getRequestValue
+        const requestValue = await client.getRequestValue('1');
+        //retrieveData
+        const newValueCount = await client.getNewValueCountbyRequestId('1');
+        const timestamp = await client.getTimestampbyRequestIDandIndex('1', newValueCount - 1);
+        const requestValue2 = await client.retrieveData('1', timestamp);
+
+        console.debug(requestValue);
+        console.debug(requestValue2);
+        expect(requestValue.value).to.equal(requestValue2); // Recommended
     });
 });

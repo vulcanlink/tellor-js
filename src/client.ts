@@ -152,6 +152,21 @@ class TellorClient {
         const requestQueue = await this.tellorGetters.methods.getRequestQ().call();
         return requestQueue;
     }
+
+    public async getNewValueCountbyRequestId(id: string): Promise<number> {
+        const newValueCount = await this.tellorGetters.methods.getNewValueCountbyRequestId(id).call();
+        return newValueCount;
+    }
+
+    public async getTimestampbyRequestIDandIndex(id: string, index: number): Promise<number> {
+        const timestamp = await this.tellorGetters.methods.getTimestampbyRequestIDandIndex(id, index).call();
+        return timestamp;
+    }
+
+    public async retrieveData(id: string, timestamp: number): Promise<number> {
+        const value = await this.tellorGetters.methods.retrieveData(id, timestamp).call();
+        return value;
+    }
 }
 
 export default TellorClient;

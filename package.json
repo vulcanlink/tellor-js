@@ -1,6 +1,6 @@
 {
     "name": "tellor-js",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Tellor.io Javascript/Typescript Client",
     "author": "Leo Vigna",
     "private": false,
@@ -19,8 +19,7 @@
         "url": "git@github.com:vulcanlink/tellor-js.git"
     },
     "dependencies": {
-        "keccak256": "^1.0.0",
-        "web3": "^1.2.9"
+        "keccak256": "^1.0.0"
     },
     "scripts": {
         "clean": "rm -rf dist",

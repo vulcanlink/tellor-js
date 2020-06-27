@@ -19,7 +19,7 @@ export interface RequestInfo {
 
 export interface RequestValue {
     didGet: boolean;
-    value: string;
+    value: number;
     timestampRetrieved: string;
 }
 
