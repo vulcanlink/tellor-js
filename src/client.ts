@@ -97,7 +97,7 @@ class TellorClient {
     }
 
     //Get data for as specific price request
-    public async getRequestValue(id: string): Promise<RequestValue> {
+    public async getCurrentValue(id: string): Promise<RequestValue> {
         const [didGet, value, timestampRetrieved] = await this.userContract.methods.getCurrentValue(id).call();
         return {
             didGet,

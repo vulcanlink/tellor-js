@@ -36,10 +36,10 @@ describe('TellorClient', function () {
         console.debug(requestInfo);
     });
 
-    it('getRequestValue', async function () {
+    it('getCurrentValue', async function () {
         const web3 = new Web3(ETH_RPC);
         const client = new TellorClient(web3);
-        const requestValue = await client.getRequestValue('1');
+        const requestValue = await client.getCurrentValue('1');
 
         console.debug(requestValue);
     });
@@ -85,11 +85,11 @@ describe('TellorClient', function () {
         console.debug(data);
     });
 
-    it('getRequestValue == retrieveData', async function () {
+    it('getCurrentValue == retrieveData', async function () {
         const web3 = new Web3(ETH_RPC);
         const client = new TellorClient(web3);
         //getRequestValue
-        const requestValue = await client.getRequestValue('1');
+        const requestValue = await client.getCurrentValue('1');
         //retrieveData
         const newValueCount = await client.getNewValueCountbyRequestId('1');
         const timestamp = await client.getTimestampbyRequestIDandIndex('1', newValueCount - 1);
